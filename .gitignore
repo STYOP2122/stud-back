@@ -6,9 +6,8 @@ obj/
 .vs/
 .idea/
 
-# Data & uploads
-**/data/
-**/uploads/
+# Uploads & SQLite DB files (исходники в Studwork.Api/Data/ коммитим)
+uploads/
 *.db
 *.db-shm
 *.db-wal
