@@ -11,8 +11,9 @@ services:
         value: Production
       - key: ASPNETCORE_URLS
         value: http://+:8080
+      # Free tier без диска: SQLite в /tmp (данные сбрасываются при редеплое — ок для демо)
       - key: ConnectionStrings__DefaultConnection
-        value: Data Source=/app/data/studwork.db
+        value: Data Source=/tmp/studwork.db
       - key: Cors__Origins
         value: https://STYOP2122.github.io,http://localhost:5173
       - key: Jwt__Key
@@ -21,7 +22,3 @@ services:
         value: StudworkApi
       - key: Jwt__Audience
         value: StudworkApp
-    disk:
-      name: studwork-data
-      mountPath: /app/data
-      sizeGB: 1
