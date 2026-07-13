@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: studwork-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /api/orders
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://+:8080
+      - key: ConnectionStrings__DefaultConnection
+        value: Data Source=/app/data/studwork.db
+      - key: Cors__Origins
+        value: https://STYOP2122.github.io,http://localhost:5173
+      - key: Jwt__Key
+        generateValue: true
+      - key: Jwt__Issuer
+        value: StudworkApi
+      - key: Jwt__Audience
+        value: StudworkApp
+    disk:
+      name: studwork-data
+      mountPath: /app/data
+      sizeGB: 1

@@ -1,0 +1,22 @@
+# Build
+bin/
+obj/
+*.user
+*.suo
+.vs/
+.idea/
+
+# Data & uploads
+**/data/
+**/uploads/
+*.db
+*.db-shm
+*.db-wal
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.appsettings.Local.json
